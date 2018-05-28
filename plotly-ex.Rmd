@@ -49,12 +49,39 @@ palette <- c('#A6B91A', #bug
              '#B7B7CE', #steel
              '#6390F0') #water
 
-plot_ly(df, x=~attack, y=~sp_attack, z=~speed, type='scatter3d', color=~type1, colors=palette, mode='markers', marker=list(size=4), width=700, height=550, text='test') %>%
-  layout()
+plot_ly(df, x=~attack, y=~sp_attack, z=~speed, 
+        type='scatter3d', color=~type1, colors=palette, 
+        mode='markers', marker=list(size=4), 
+        width=700, height=550, 
+        hoverinfo='text',
+        text=~paste(name,
+                    '</br>',
+                    '</br> Type 1: ', type1,
+                    '</br> Type 2: ', type2,
+                    '</br> Attack: ', attack,
+                    '</br> SP. Attack: ', sp_attack,
+                    '</br> Speed: ', speed)) %>%
+  layout(scene=list(xaxis=list(title='Attack'),
+         yaxis=list(title='Special Attack'),
+         zaxis=list(title='Speed')))
 ```
 
 ## Defensive Stats of Pokémon
 
 ```{r}
-
+plot_ly(df, x=~defense, y=~sp_defense, z=~hp, 
+        type='scatter3d', color=~type1, colors=palette, 
+        mode='markers', marker=list(size=4), 
+        width=700, height=550, 
+        hoverinfo='text',
+        text=~paste(name,
+                    '</br>',
+                    '</br> Type 1: ', type1,
+                    '</br> Type 2: ', type2,
+                    '</br> Defense: ', defense,
+                    '</br> SP. Defense: ', sp_defense,
+                    '</br> HP: ', hp)) %>%
+  layout(scene=list(xaxis=list(title='Defense'),
+         yaxis=list(title='Special Defense'),
+         zaxis=list(title='HP')))
 ```
