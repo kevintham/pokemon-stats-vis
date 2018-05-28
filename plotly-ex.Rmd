@@ -21,12 +21,6 @@ df <- read.csv(destfile)
 
 ```
 
-## Column Names
-
-```{r}
-names(df)
-```
-
 ## Offensive Stats of Pokémon
 
 ```{r}
