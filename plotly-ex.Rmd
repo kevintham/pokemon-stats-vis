@@ -1,0 +1,60 @@
+---
+title: "Offensive and Defensive stats of Pokémon"
+author: "Kevin Tham"
+date: "May 28, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, include=FALSE}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(knitr, dplyr, plotly)
+```
+
+```{r, cache=TRUE, include=FALSE}
+destfile <- 'pokemon.csv'
+
+df <- read.csv(destfile)
+
+```
+
+## Column Names
+
+```{r}
+names(df)
+```
+
+## Offensive Stats of Pokémon
+
+```{r}
+palette <- c('#A6B91A', #bug
+             '#705746', #dark
+             '#6F35FC', #dragon
+             '#F7D02C', #electric
+             '#D685AD', #fairy
+             '#C22E28', #fighting
+             '#EE8130', #fire
+             '#A98FF3', #flying
+             '#735797', #ghost
+             '#7AC74C', #grass
+             '#E2BF65', #ground
+             '#96D9D6', #ice
+             '#A8A77A', #normal
+             '#A33EA1', #poison
+             '#F95587', #psychic
+             '#B6A136', #rock
+             '#B7B7CE', #steel
+             '#6390F0') #water
+
+plot_ly(df, x=~attack, y=~sp_attack, z=~speed, type='scatter3d', color=~type1, colors=palette, mode='markers', marker=list(size=4), width=700, height=550, text='test') %>%
+  layout()
+```
+
+## Defensive Stats of Pokémon
+
+```{r}
+
+```
